@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Confirm Recycling Bin</title>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="../css/confirmBin.css">
+  <script src="../js/config.js"></script>
+  <!-- Firebase SDKs: Core and required modules must be loaded first -->
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-storage-compat.js"></script>
+  <!-- Firebase configuration -->
+  <script src="../js/firebase.js"></script>
+  <!-- Confirm Bin page logic -->
+  <script src="../js/confirmBin.js" defer></script>
+</head>
+<body>
+  <!-- Back button -->
+  <button id="backBtn" aria-label="Go back to product info" onclick="window.location.href='productinfo.html'">← Back</button>
+
+  <h1>Confirm Recycling</h1>
+  
+  <!-- Instructional message -->
+  <div class="instructions">
+    <p>Please take a clear, well-lit photo of the recycling bin. Ensure the entire bin is visible, any labels are readable, and there are no obstructions or harsh shadows.</p>
+  </div>
+
+  <!-- Camera container -->
+  <div class="camera-container">
+    <video id="video" autoplay playsinline aria-label="Live camera feed"></video>
+    <img id="capturedImage" alt="Captured photo preview" />
+  </div>
+
+  <!-- Vertical buttons -->
+  <div class="button-row">
+    <button id="captureBtn" aria-label="Capture photo">Capture Photo</button>
+    <button id="retakeBtn" aria-label="Retake photo">Retake Photo</button>
+    <button id="confirmBtn" aria-label="Confirm recycling">Confirm</button>
+    <button id="skipBtn" aria-label="Skip bin verification and continue">Skip Verification for testing</button>
+    <button id="cancelBtn" aria-label="Cancel and return">Cancel</button>
+  </div>
+
+  <!-- Loading popup -->
+  <div id="loadingPopup" class="popup">
+    <h2>Loading...</h2>
+    <div class="spinner"></div>
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+    </div>
+    <p>Please wait while we verify your photo.</p>
+  </div>
+
+  <!-- Failure popup -->
+  <div id="failurePopup" class="popup">
+    <h2>Verification Failed</h2>
+    <p>The photo does not clearly show a recycling bin.<br>
+       Please ensure the bin is well-lit, entirely visible, and unobstructed.</p>
+    <button id="closeFailurePopup" aria-label="Try again">OK</button>
+  </div>
+
+  <!-- Points earned popup -->
+  <div id="popup" class="popup">
+    <h2>🎉 Points Earned!</h2>
+    <p>You have earned 10 points!</p>
+    <button id="closePopup" aria-label="Close popup">OK</button>
+  </div>
+
+  <!-- Hidden canvas for capturing photo -->
+  <canvas id="canvas" style="display: none;"></canvas>
+</body>
+</html>

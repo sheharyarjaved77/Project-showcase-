@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Scan & Recycle</title>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="../css/scan.css">
+  <script src="../js/config.js"></script>
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore-compat.js"></script>
+  <!-- Firebase configuration -->
+  <script src="../js/firebase.js"></script>
+  <!-- QuaggaJS library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+  <!-- Scan page logic -->
+  <script src="../js/scan.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Scan & Recycle</h1>
+    <p class="subtitle">Try scanning barcodes of  items like a <strong>water bottle</strong>, <strong>can</strong>, or <strong>cereal box</strong>.</p>
+  </header>
+
+  <!-- Scanner Box with Spinner and Skeleton Loader -->
+  <div class="scanner-box" id="scannerBox">
+    <div id="interactive"></div>
+    <div class="spinner-overlay" id="spinnerOverlay">
+      <div class="spinner"></div>
+    </div>
+    <!-- Skeleton Loader confined inside scannerBox -->
+    <div id="skeletonLoader">
+      <div class="skeleton-card"></div>
+      <div class="skeleton-text">Loading...</div>
+    </div>
+
+    <!-- Zoom Controls (initially hidden; shown if supported) -->
+    <div class="zoom-controls" id="zoomControls">
+      <div class="zoom-option" data-zoom="0.5">.5x</div>
+      <div class="zoom-option active" data-zoom="1">1x</div>
+      <div class="zoom-option" data-zoom="2">2x</div>
+    </div>
+
+    <!-- Flash Toggle (initially hidden; shown if supported) -->
+    <div class="flash-toggle" id="flashToggle">
+      Flash Off
+    </div>
+  </div>
+
+  <!-- Message for 0.5x usage -->
+  <div id="zoomMessage">
+    Use <strong>.5x</strong> for close-up scanning if available.
+  </div>
+  
+  <!-- Barcode Prompt -->
+  <p id="scan-status">Waiting for barcode...</p>
+  <p id="scan-error"></p>
+
+  <!-- Manual Barcode Entry -->
+  <div class="manual-entry">
+    <h3>Or Enter Barcode Manually</h3>
+    <input type="text" id="manual-barcode" placeholder="Enter Barcode" />
+    <button id="lookup-barcode" class="lookup-btn">Look Up Product</button>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="home.html">
+      <img src="../assets/icons/home-icon.png" alt="Home Icon" class="nav-icon">
+      Home
+    </a>
+    <a href="scan.html" class="active">
+      <img src="../assets/icons/scan-icon.png" alt="Scan Icon" class="nav-icon">
+      Scan & Recycle
+    </a>
+    <a href="profile.html">
+      <img src="../assets/icons/profile-icon.png" alt="Profile Icon" class="nav-icon">
+      Profile
+    </a>
+  </nav>
+</body>
+</html>

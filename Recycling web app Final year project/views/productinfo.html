@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Product Info</title>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="../css/productinfo.css">
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore-compat.js"></script>
+  <!-- Firebase configuration -->
+  <script src="../js/firebase.js"></script>
+  <!-- Product Info page logic -->
+  <script src="../js/productinfo.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Product Information</h1>
+  </header>
+
+  <div class="product-info-container">
+    <div class="product-name" id="product-name">Loading...</div>
+    <div class="points-earned">Get <span id="points-earned">10</span> Points</div>
+
+    <div class="recycling-guide">
+      <h3>Recycling Guide</h3>
+      <div class="recycling-text" id="recycling-tips">
+        Loading...
+      </div>
+    </div>
+
+    <button class="recycle-btn" id="recycle-btn">Recycle</button>
+    <button class="exit-btn" id="exit-btn">Exit</button>
+  </div>
+
+  <nav>
+    <a href="../home.html">
+      <img src="../assets/icons/home-icon.png" alt="Home Icon" class="nav-icon">
+      Home
+    </a>
+    <a class="active" href="../scan.html">
+      <img src="../assets/icons/scan-icon.png" alt="Scan Icon" class="nav-icon">
+      Scan & recycle
+    </a>
+    <a href="../profile.html">
+      <img src="../assets/icons/profile-icon.png" alt="Profile Icon" class="nav-icon">
+      Profile
+    </a>
+  </nav>
+</body>
+</html>

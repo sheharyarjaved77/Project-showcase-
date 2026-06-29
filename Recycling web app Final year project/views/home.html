@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Home</title>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="../css/home.css">
+  <!-- Firebase libraries -->
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore-compat.js"></script>
+  <!-- Firebase configuration -->
+  <script src="../js/firebase.js"></script>
+  <!-- Home page logic -->
+  <script src="../js/home.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Recycle Plus</h1>
+  </header>
+
+  <!-- Recycling Tip Section with Shuffle Button -->
+  <details class="tip-details" open>
+    <summary class="tip-summary">Recycling Tip or Fact of the Day</summary>
+    <div class="tip-content">
+      <p id="recyclingTip">Loading tip...</p>
+      <button id="shuffleTipBtn" title="Shuffle Tip">🔄</button>
+    </div>
+  </details>
+
+  <!-- Overview Section -->
+  <div class="overview-container">
+    <h2>Overview</h2>
+    <div class="metrics-grid">
+      <div class="metric-card" onclick="showModal('Reward Points details coming soon')">
+        <img src="../assets/icons/reward-icon.png" alt="Reward Icon">
+        <span class="stats-label">Points</span>
+        <span id="points" class="metric-value">0</span>
+      </div>
+      <div class="metric-card" onclick="showModal('Items Recycled details coming soon')">
+        <img src="../assets/icons/recycle-icon.png" alt="Recycle Icon">
+        <span class="stats-label">All Recycled</span>
+        <span id="itemsRecycled" class="metric-value">0</span>
+      </div>
+      <div class="metric-card" onclick="showModal('Today\'s Recycling details coming soon')">
+        <img src="../assets/icons/today-icon.png" alt="Today Icon">
+        <span class="stats-label">Recycled Today</span>
+        <span id="itemsRecycledToday" class="metric-value">0</span>
+      </div>
+      <div class="metric-card" onclick="showModal('CO₂ Savings details coming soon')">
+        <img src="../assets/icons/co2-icon.png" alt="CO₂ Icon">
+        <span class="stats-label">CO₂</span>
+        <span id="co2Saved" class="metric-value">0 kg</span>
+      </div>
+    </div>
+    <div id="motivationalMessage"></div>
+  </div>
+
+  <!-- Goals Dashboard Section with Achievement Display -->
+  <div class="dashboard-container">
+    <h2>Your Goals Dashboard</h2>
+    <div class="goal-row">
+      <span class="goal-label">Daily Goal:</span>
+      <input type="number" id="dailyGoal" class="goal-input" placeholder="Daily" />
+      <div class="progress-wrapper">
+        <progress id="dailyProgressBar" value="0" max="100"></progress>
+        <span id="dailyProgressText" class="progress-text">0%</span>
+      </div>
+    </div>
+    <div class="goal-row">
+      <span class="goal-label">Monthly Goal:</span>
+      <input type="number" id="monthlyGoal" class="goal-input" placeholder="Monthly" />
+      <div class="progress-wrapper">
+        <progress id="monthlyProgressBar" value="0" max="100"></progress>
+        <span id="monthlyProgressText" class="progress-text">0%</span>
+      </div>
+    </div>
+    <!-- Achievement display -->
+    <div id="achievement"></div>
+  </div>
+
+  <!-- Leaderboard Section -->
+  <div class="leaderboard-container">
+    <h2 class="leaderboard-title">
+      <img src="../assets/icons/leaderboard-icon.png" alt="Leaderboard Icon"> Leaderboard
+    </h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboardTable"></tbody>
+    </table>
+  </div>
+
+  <!-- Goal Completion Notification Popup -->
+  <div id="goalPopup" class="goal-popup">
+    <h2>Congratulations!</h2>
+    <p id="goalPopupMessage">You've reached your goal!</p>
+    <button id="closeGoalPopup">OK</button>
+  </div>
+
+  <!-- Modal for Metric Details -->
+  <div id="detailsModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" id="closeModal">&times;</span>
+      <p id="modalText">More details...</p>
+    </div>
+  </div>
+
+  <nav>
+    <a href="home.html" class="active">
+      <img src="../assets/icons/home-icon.png" alt="Home Icon" class="nav-icon" />
+      Home
+    </a>
+    <a href="scan.html">
+      <img src="../assets/icons/scan-icon.png" alt="Scan Icon" class="nav-icon" />
+      Scan & recycle
+    </a>
+    <a href="profile.html">
+      <img src="../assets/icons/profile-icon.png" alt="Profile Icon" class="nav-icon" />
+      Profile
+    </a>
+  </nav>
+</body>
+</html>

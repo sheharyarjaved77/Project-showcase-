@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Profile</title>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="../css/profile.css">
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore-compat.js"></script>
+  <!-- Firebase configuration (shared) -->
+  <script src="../js/firebase.js"></script>
+  <!-- Profile page logic -->
+  <script src="../js/profile.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Profile</h1>
+  </header>
+
+  <div class="profile-container">
+    <div class="profile-header">
+      <img src="../assets/icons/profile-icon.png" alt="User Avatar" class="profile-avatar" id="userAvatar">
+      <div class="profile-details">
+        <div class="profile-name" id="userName">N/A</div>
+        <div class="profile-email" id="userEmail">N/A</div>
+      </div>
+      <button class="sign-out-btn" id="signOutBtn">Sign Out</button>
+    </div>
+
+    <!-- Recycling Dashboard Section -->
+    <div class="dashboard-container">
+      <h2>Recycling Dashboard</h2>
+      <div class="dashboard-cards">
+        <!-- Streak Card -->
+        <div class="dashboard-card" id="streakCard">
+          <h3>🔥 Current Streak</h3>
+          <p id="streakValue">0 Days</p>
+        </div>
+
+        <!-- Achievements Card -->
+        <div class="dashboard-card" id="badgesCard">
+          <h3>🙌 Achievements</h3>
+          <div class="achievements-container" id="achievementsContainer">
+            <!-- Achievement badges will be rendered here -->
+          </div>
+          <button id="toggleBadgesBtn">Show More</button>
+        </div>
+
+        <!-- Rank Card -->
+        <div class="dashboard-card" id="rankCard">
+          <h3>🏆 Your Rank</h3>
+          <p id="rankValue">Not on leaderboard</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recycling History Section -->
+    <div class="history-container">
+      <div class="history-title">Recycling History</div>
+      <div id="historyList">
+        <p>No recycling history yet.</p>
+      </div>
+      <button id="viewAllBtn" class="view-all-btn" style="display: none;">View All</button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="home.html">
+      <img src="../assets/icons/home-icon.png" alt="Home Icon" class="nav-icon">
+      Home
+    </a>
+    <a href="scan.html">
+      <img src="../assets/icons/scan-icon.png" alt="Scan Icon" class="nav-icon">
+      Scan & recycle
+    </a>
+    <a href="profile.html" class="active">
+      <img src="../assets/icons/profile-icon.png" alt="Profile Icon" class="nav-icon">
+      Profile
+    </a>
+  </nav>
+</body>
+</html>
